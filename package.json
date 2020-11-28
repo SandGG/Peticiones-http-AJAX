@@ -1,14 +1,22 @@
 {
-  "name": "servidor-express",
+  "name": "Prueba-Servidor",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. Crear archivo package.json\r ```scriptshell\r npm init -y\r ```\r 2. Instalar Express\r ```scriptshell\r npm install express --save\r ```\r 3. Crear archivo index.js  \r 4. Copiar en el archivo index.js\r ```javascript\r const express = require('express');\r const app = express();",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SandGG/Peticiones-http-AJAX.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SandGG/Peticiones-http-AJAX/issues"
+  },
+  "homepage": "https://github.com/SandGG/Peticiones-http-AJAX#readme",
   "dependencies": {
     "express": "^4.17.1"
   }

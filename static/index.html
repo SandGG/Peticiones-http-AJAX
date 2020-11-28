@@ -6,9 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    hola
-    <input id='get' type='submit' value='Obtener datos'>
-    <div id='response'></div>
-    <script src='/static/pedir.js'></script>
+    <div class="container">
+        <input type="button" class="input__button" id="get" value="Datos JSON">
+        <div class="response">
+            <table class="table" id="res">
+            </table>
+        </div>
+    </div>
+    <script src="/static/ajax.js"></script>
 </body>
 </html>

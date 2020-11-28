@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "nombre": "Escritorio",
+        "precio": "20",
+        "categoria": "Oficina"
+    },
+    {
+        "id": "2",
+        "nombre": "Televisión",
+        "precio": "150",
+        "categoria": "Hogar"
+    },
+    {
+        "id": "3",
+        "nombre": "Suministros",
+        "precio": "50",
+        "categoria": "Abarrotes"
+    },
+    {
+        "id": "4",
+        "nombre": "Equipo de computo",
+        "precio": "200",
+        "categoria": "Oficina"
+    },
+    {
+        "id": "5",
+        "nombre": "Lavadora",
+        "precio": "175",
+        "categoria": "Hogar"
+    }
+]
