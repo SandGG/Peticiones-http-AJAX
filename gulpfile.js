@@ -7,7 +7,7 @@ const  gulp  = require('gulp'),
 ; 
 
 function js () {
-    return  browserify('static/scripts/ajax.js')
+    return  browserify('scripts/ajax.js')
     .transform(babelify, {presets: ['@babel/preset-env']})
     .bundle()
     .pipe(source('./'))
@@ -15,14 +15,14 @@ function js () {
 }
 
 function css (){
-    return gulp.src('static/styles/estilo.scss')
+    return gulp.src('styles/estilo.scss')
     .pipe(sass( { importer: moduleImporter() } ))
     .pipe(gulp.dest('static/dist'));
 }
 
 function watch () {
-    gulp.watch('static/scripts/*.js', js); 
-    gulp.watch('static/styles/*.scss', css);
+    gulp.watch('/scripts/*.js', js); 
+    gulp.watch('/styles/*.scss', css);
 }
 
 exports.default = gulp.series(js, css);
