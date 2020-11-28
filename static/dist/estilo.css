@@ -1,0 +1,33 @@
+.container__button, .table {
+  font-family: Arial;
+  font-size: 16px; }
+
+.container__button {
+  border: none;
+  outline: none;
+  padding: 12px; }
+
+body {
+  background: #dddcdc; }
+
+.container {
+  padding: 12px;
+  background: whitesmoke; }
+  .container__content {
+    padding: 12px;
+    width: 80%;
+    margin: 0 auto; }
+  .container__button {
+    background: #d8d8f3;
+    width: 20%;
+    cursor: pointer; }
+    .container__button:hover {
+      font-weight: 700; }
+
+.table {
+  background: white;
+  width: 100%; }
+  .table__tr:hover {
+    background: #e4e4e4; }
+  .table__td {
+    height: 50px; }

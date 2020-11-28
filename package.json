@@ -18,6 +18,28 @@
   },
   "homepage": "https://github.com/SandGG/Peticiones-http-AJAX#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "gulp-sass": "^4.1.0",
+    "sass-module-importer": "^1.4.0",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "env": {
+    "development": {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "safari >= 7"
+        ]
+      }
+    }
   }
 }
