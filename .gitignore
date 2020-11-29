@@ -1,4 +1,5 @@
 node_modules/
 servidor-http/
 servidor-express/
-servidor-ajax
+servidor-ajax/
+server-ajax/

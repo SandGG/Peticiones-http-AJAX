@@ -1,31 +1,28 @@
-const http = new XMLHttpRequest();
-const search = document.querySelector('#search');
-const res = document.querySelector('#res');
+$('#search').on('click', getUsers);
 
-search.addEventListener('click', () => {   
-    http.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let datos = JSON.parse(http.responseText);
-            searchUser(datos);
-        }
+function getUsers() {
+  $.ajax({
+    url: '/static/users.json',
+    success: function(respuesta) {
+        searchUser(respuesta)
     }
-    http.open('GET', '/static/users.json', true);
-    http.send();
-});
-
-function searchUser (datos) {
-    let nameUser = document.querySelector('#nameUser').value;
-    let passUser = document.querySelector('#passUser').value;
-    for (let item of datos) {
-        if (nameUser == item.user && passUser == item.pass) {
-            return writeData(item)
-        } else {
-            res.innerHTML = '<p> Data not found </p>';
-        }
-    } 
+  });
 }
 
-const writeData = (datos) => {
+function searchUser (datos) {
+    $(document).ready(function(){
+		$.each(datos, function(i,item){
+		if ($('#nameUser').val() == item.user && $('#passUser').val() == item.pass) {
+            writeData(item);
+            return false;
+        } else {
+            $('#res').html('<p> Data not found </p>');
+        }
+		})
+	})
+}
+
+function writeData (datos) {
     cleanInputs();
 
     let text = `<table class="table">
@@ -44,7 +41,7 @@ const writeData = (datos) => {
                         <td class="table__td">${datos.descrip}</td>
                     </tr>
                 </table>`;   
-    return res.innerHTML = text;
+    $('#res').html(text);
 }
 
 function cleanInputs () {
