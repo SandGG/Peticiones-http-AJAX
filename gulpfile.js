@@ -26,4 +26,4 @@ function watch () {
 }
 
 exports.default = gulp.series(js, css);
-exports.watch = watch;		
+exports.watch = watch;	

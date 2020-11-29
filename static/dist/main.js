@@ -8,22 +8,23 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var http = new XMLHttpRequest();
-var get = document.querySelector('#get');
+var search = document.querySelector('#search');
 var res = document.querySelector('#res');
-get.addEventListener('click', function () {
+search.addEventListener('click', function () {
   http.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var datos = JSON.parse(http.responseText);
-      writeData(datos);
+      searchUser(datos);
     }
   };
 
-  http.open('GET', '/static/inventario.json', true);
+  http.open('GET', '/static/users.json', true);
   http.send();
 });
 
-function writeData(datos) {
-  res.innerHTML = "<tr class=\"table__tr\">\n        <td class=\"table__td\">ID</td>\n        <td class=\"table__td\">Nombre</td>\n        <td class=\"table__td\">Precio</td>\n        <td class=\"table__td\">Categoria</td>\n    </tr>";
+function searchUser(datos) {
+  var nameUser = document.querySelector('#nameUser').value;
+  var passUser = document.querySelector('#passUser').value;
 
   var _iterator = _createForOfIteratorHelper(datos),
       _step;
@@ -31,12 +32,31 @@ function writeData(datos) {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var item = _step.value;
-      res.innerHTML += "<tr class=\"table__tr\">\n            <td class=\"table__td\">".concat(item.id, "</td>\n            <td class=\"table__td\">").concat(item.nombre, "</td>\n            <td class=\"table__td\">").concat(item.precio, "</td>\n            <td class=\"table__td\">").concat(item.categoria, "</td>\n        </tr>");
+
+      if (nameUser == item.user && passUser == item.pass) {
+        return writeData(item);
+      } else {
+        res.innerHTML = '<p> Data not found </p>';
+      }
     }
   } catch (err) {
     _iterator.e(err);
   } finally {
     _iterator.f();
+  }
+}
+
+var writeData = function writeData(datos) {
+  cleanInputs();
+  var text = "<table class=\"table\">\n                    <tr class=\"table__tr\">\n                        <td class=\"table__td\">ID</td>\n                        <td class=\"table__td\">User</td>\n                        <td class=\"table__td\">Password</td>\n                        <td class=\"table__td\">Name</td>\n                        <td class=\"table__td\">Description</td>\n                    </tr>\n                    <tr class=\"table__tr\">\n                        <td class=\"table__td\">".concat(datos.id, "</td>\n                        <td class=\"table__td\">").concat(datos.user, "</td>\n                        <td class=\"table__td\">").concat(datos.pass, "</td>\n                        <td class=\"table__td\">").concat(datos.name, "</td>\n                        <td class=\"table__td\">").concat(datos.descrip, "</td>\n                    </tr>\n                </table>");
+  return res.innerHTML = text;
+};
+
+function cleanInputs() {
+  var input = document.getElementsByClassName('form__input');
+
+  for (var i = 0; i < input.length; i++) {
+    input[i].value = '';
   }
 }
 

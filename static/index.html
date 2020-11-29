@@ -8,10 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <input type="button" class="container__button" id="get" value="Datos JSON">
-        <div class="container__content">
-            <table class="table" id="res">
-            </table>
+        <div class="form">
+            <label class="form__label">Name: <input type="text" class="form__input" id="nameUser" placeholder="User name"></label>
+            <label class="form__label">Password: <input type="password" class="form__input" id="passUser" placeholder="User password"></label>
+            <input type="submit" class="form__button" id="search" value="Search">
+        </div>
+        <div class="container__content" id="res">
+        
         </div>
     </div>
     <script src="/static/dist/main.js"></script>

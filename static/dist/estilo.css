@@ -1,8 +1,8 @@
-.container__button, .table {
+.form__input, .form__label, .form__button, .table {
   font-family: Arial;
   font-size: 16px; }
 
-.container__button {
+.form__input, .form__button {
   border: none;
   outline: none;
   padding: 12px; }
@@ -17,11 +17,19 @@ body {
     padding: 12px;
     width: 80%;
     margin: 0 auto; }
-  .container__button {
+
+.form {
+  display: flex;
+  flex-direction: column; }
+  .form__input {
+    padding: 12px; }
+  .form__label {
+    padding: 12px; }
+  .form__button {
     background: #d8d8f3;
     width: 20%;
     cursor: pointer; }
-    .container__button:hover {
+    .form__button:hover {
       font-weight: 700; }
 
 .table {
